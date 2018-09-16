@@ -26,6 +26,7 @@ class City(models.Model):
 class Mosque(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     name = models.CharField(max_length=256, null=True, blank=True)
+    photo = models.ImageField(null=True, blank=True, upload_to='mosque')
     postal_code = models.CharField(max_length=256, null=True, blank=True)
     address = models.TextField(null=True, blank=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
