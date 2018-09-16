@@ -31,4 +31,20 @@ class Mosque(models.Model):
     address = models.TextField(null=True, blank=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    def __str__(self):
+        return self.name
 
+class Schedule(models.Model):
+    ustad = models.ManyToManyField(Ustad)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    mosque = models.ForeignKey(Mosque, on_delete=models.CASCADE)
+    title = models.CharField(max_length=256, null=True, blank=True)
+    contact = models.CharField(max_length=256, null=True, blank=True)
+    tags = models.CharField(max_length=256, null=True, blank=True)
+    excerpt = models.CharField(max_length=256, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    start_from = models.DateTimeField(null=True, blank=True)
+    end_to = models.DateTimeField(null=True, blank=True)
+    photo = models.ImageField(null=True, blank=True, upload_to='schedule')
+    def __str__(self):
+        return self.title
