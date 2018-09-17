@@ -20,6 +20,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.views.static import serve
 
+admin.site.site_header = 'Jadwal Kajian'
+admin.site.site_title = 'Jadwal Kajian'
+
 urlpatterns = [
     path('', include('kajian.urls')),
     path('admin/', admin.site.urls),
