@@ -1,0 +1,7 @@
+.btn.focus, .btn:focus{
+    box-shadow: none;
+}
+
+section.cta .cta-content h2{
+    max-width: 100%;
+}
