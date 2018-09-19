@@ -67,12 +67,15 @@ class ScheduleAdmin(admin.ModelAdmin):
     list_display = ['photo_image', 'start_from', 'title', 'city', 'mosque', 'excerpt']
 
     def photo_image(self, obj):
-        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
-                url=obj.photo.url,
-                width=100,
-                height=100,
+        try:
+            return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+                    url=obj.photo.url,
+                    width=100,
+                    height=100,
+                )
             )
-        )
+        except:
+            return ''
     photo_image.short_description = 'Flyer'
 
 
