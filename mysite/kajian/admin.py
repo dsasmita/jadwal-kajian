@@ -11,7 +11,7 @@ class UstadAdmin(admin.ModelAdmin):
         ('Profile',         {'fields': ['profile_excerpt', 'profile']}),
         ('Social Media',    {'fields': ['link_youtube', 'link_fb', 'link_instagram', 'link_twitter']}),
     ]
-    list_display = ['nama', 'photo_image', 'profile_excerpt']
+    list_display = ['name', 'photo_image', 'profile_excerpt']
     search_fields = ['name']
     def photo_image(self, obj):
         if obj.photo:
