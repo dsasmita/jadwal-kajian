@@ -11,7 +11,7 @@ class UstadAdmin(admin.ModelAdmin):
         ('Profile',         {'fields': ['profile_excerpt', 'profile']}),
         ('Social Media',    {'fields': ['link_youtube', 'link_fb', 'link_instagram', 'link_twitter']}),
     ]
-    list_display = ['photo_image', 'name', 'profile_excerpt']
+    list_display = ['nama', 'photo_image', 'profile_excerpt']
     search_fields = ['name']
     def photo_image(self, obj):
         if obj.photo:
@@ -30,7 +30,7 @@ class MosqueAdmin(admin.ModelAdmin):
         ('Maps', {'fields': ['latitude', 'longitude']}),
         ('Address', {'fields': ['city', 'postal_code', 'address']}),
     ]
-    list_display = ['photo_image', 'name', 'get_city', 'get_province', 'address']
+    list_display = ['name', 'photo_image', 'get_city', 'get_province', 'address']
 
     def photo_image(self, obj):
         if obj.photo:
@@ -68,7 +68,7 @@ class ScheduleAdmin(admin.ModelAdmin):
         ('Info',        {'fields': ['ustad', 'excerpt', 'tags', 'description']}),
         ('Detail Info', {'fields': ['city', 'mosque', 'contact','start_from', 'end_to']}),
     ]
-    list_display = ['photo_image', 'start_from', 'title', 'city', 'mosque', 'excerpt']
+    list_display = ['start_from', 'photo_image', 'title', 'city', 'mosque', 'excerpt']
 
     def photo_image(self, obj):
         if obj.photo:
