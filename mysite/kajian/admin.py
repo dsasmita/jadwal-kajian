@@ -22,7 +22,12 @@ class UstadAdmin(admin.ModelAdmin):
                 )
             )
         except:
-            return ''
+            return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+                    url='',
+                    width=100,
+                    height=100,
+                )
+            )
 
 class MosqueAdmin(admin.ModelAdmin):
     readonly_fields = ['photo_image']
@@ -42,7 +47,12 @@ class MosqueAdmin(admin.ModelAdmin):
                 )
             )
         except:
-            return ''
+            return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+                    url='',
+                    width=100,
+                    height=100,
+                )
+            )
     photo_image.short_description = 'Photo'
 
     def get_city(self, obj):
@@ -81,7 +91,12 @@ class ScheduleAdmin(admin.ModelAdmin):
                 )
             )
         except:
-            return ''
+            return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+                    url='',
+                    width=100,
+                    height=100,
+                )
+            )
     photo_image.short_description = 'Flyer'
 
 
