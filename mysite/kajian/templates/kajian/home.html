@@ -120,7 +120,7 @@
             {% if schedule_list %}
                 {% for schedule in schedule_list %}
                 <div class="col-md-3">
-                    <div class="card schedule-card" style="width: 18rem;">
+                    <div class="card schedule-card">
                         {% if schedule.photo %}
                             <a href="{% url 'kajian:detail' schedule.id %}">
                                 <img class="card-img-top" src="{{ schedule.photo.url }}" alt="{{ schedule.title }}">

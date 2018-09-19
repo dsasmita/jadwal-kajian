@@ -19,9 +19,12 @@ header.masthead {
 
 #mainNav .navbar-brand {
     color: #fff;
-    font-family: Catamaran,Helvetica,Arial,sans-serif;
-    font-weight: 200;
-    letter-spacing: 1px;
+}
+
+@media (max-width: 990px){
+    #mainNav .navbar-brand{
+        color: #333;
+    }
 }
 
 section#download{
