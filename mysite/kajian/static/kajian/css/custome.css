@@ -5,3 +5,39 @@
 section.cta .cta-content h2{
     max-width: 100%;
 }
+
+header.masthead {
+    position: relative;
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 100px;
+    color: #fff;
+    background: url(../img/bg-pattern.png),#7A942E;
+    background: url(../img/bg-pattern.png),-webkit-gradient(linear,right top,left top,from(#7A942E),to(#006442));
+    background: url(../img/bg-pattern.png),linear-gradient(to left,#7A942E,#006442);
+}
+
+#mainNav .navbar-brand {
+    color: #fff;
+    font-family: Catamaran,Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+section#download{
+    color: #fff;
+}
+
+section#contact{
+    color: #fff;
+}
+
+.bg-primary {
+    background: #8DB255;
+    background: -webkit-gradient(linear,left top,left bottom,from(#8DB255),to(#8DB255));
+    background: linear-gradient(#8DB255,#8DB255);
+}
+
+.schedule-card small{
+    color: #999;
+}

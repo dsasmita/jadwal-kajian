@@ -35,7 +35,7 @@ class Mosque(models.Model):
         return self.name
 
 class Schedule(models.Model):
-    ustad = models.ManyToManyField(Ustad)
+    ustad = models.ManyToManyField(Ustad, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     mosque = models.ForeignKey(Mosque, on_delete=models.CASCADE)
     title = models.CharField(max_length=256, null=True, blank=True)
