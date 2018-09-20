@@ -1,5 +1,6 @@
 mysite/mysite/settings.py
 mysite/media/
+mysite/static/
 
 .idea
 # Byte-compiled / optimized / DLL files
