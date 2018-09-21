@@ -25,6 +25,7 @@ admin.site.site_title = 'Jadwal Kajian'
 
 urlpatterns = [
     path('', include('kajian.urls')),
+    path('api', include('api.urls')),
     path('admin/', admin.site.urls),
 ]
 
