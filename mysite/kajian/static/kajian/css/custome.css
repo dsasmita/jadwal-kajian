@@ -44,3 +44,7 @@ section#contact{
 .schedule-card small{
     color: #999;
 }
+
+.schedule-card{
+    margin-top: 10px;
+}

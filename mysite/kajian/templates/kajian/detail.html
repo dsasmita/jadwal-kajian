@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Detail</h1>
-    {{ schedule.title }}
-    <br>
-    {% if schedule.ustad.all %}
-        {{ schedule.ustad.all }}
-    {% endif %}
-</body>
-</html>
+{% extends 'kajian/base.html' %}
+
+{% block title %} {{ schedule.title }} {% endblock %}
+
+{% block content %}
+<section class="download bg-primary text-center" id="download" style="padding: 100px 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2 class="section-heading" style="font-size:50px">{{ schedule.city.name }}</h2>
+                <p>
+                    {{ schedule.title }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="container">
+        <h1>{{ schedule.title }}</h1>
+        {% if schedule.photo %}
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <center>
+                        <img src="{{ schedule.photo.url }}" alt="{{ schedule.title }}" class="img-fluid">
+                    </center>
+                </div>
+            </div>
+        {% endif %}
+        <hr>
+
+        <p class="text-justify">
+            {{ schedule.description }}
+        </p>
+    </div>
+</section>
+{% endblock %}

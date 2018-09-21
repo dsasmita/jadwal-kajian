@@ -1,0 +1,88 @@
+{% extends 'kajian/base.html' %}
+
+{% block title %}Kajian Terbaru{% endblock %}
+
+{% block content %}
+<section class="download bg-primary text-center" id="download" style="padding: 100px 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2 class="section-heading">Jadwal Kajian terdekat</h2>
+                <p>
+                    "Jika kalian melewati taman syurga maka singgahlah dengan hati senang". <br>
+                    Para sahabat bertanya, "Apakah taman syurga itu?" Beliau menjawab, "halaqah-halaqah dzikir" (atau
+                    halaqah ilmu)
+                    <br>
+                    (HR.At-Tirmidzi)
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="container">
+        <form action="#" method="get">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="keyword" value="{{ keyword }}" placeholder="kata kunci">
+                </div>
+                <div class="col">
+                    <select class="custom-select" name="city">
+                        <option value="">-pilih kota-</option>
+                        {% if cities %}
+                            {% for ct in cities %}
+                                <option {% if ct.id == city %} selected {% endif %}value="{{ ct.id }}">{{ ct.name }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-info">Cari Kajian</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="row">
+            {% if schedule_list %}
+                {% for schedule in schedule_list %}
+                <div class="col-md-3">
+                    <div class="card schedule-card">
+                        {% if schedule.photo %}
+                            <a href="{% url 'kajian:detail' schedule.id %}">
+                                <img class="card-img-top" src="{{ schedule.photo.url }}" alt="{{ schedule.title }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'kajian:detail' schedule.id %}">
+                                <img class="card-img-top" src="https://via.placeholder.com/350x350?text=jadwal" alt="{{ schedule.title }}">
+                            </a>
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="card-text">
+                                <a href="{% url 'kajian:detail' schedule.id %}">
+                                    {{ schedule.title }}
+                                </a><br>
+                                <small>
+                                    <i class="fa fa-map-marker"></i> {{ schedule.mosque.name }} - {{ schedule.city.name }}<br>
+                                    <i class="fa fa-calendar-alt"></i> {{ schedule.start_from }}<br>
+                                    <i class="fa fa-user"></i>
+                                    {% if schedule.ustad.all %}
+                                        {% for ustad in schedule.ustad.all %}
+                                            {{ ustad.name }}
+                                        {% endfor %}
+                                    {% endif %}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+            <div class="col-md-12">
+                <center>-tidak ada kajian-</center>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
