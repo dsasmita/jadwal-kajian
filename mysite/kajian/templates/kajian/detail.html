@@ -30,9 +30,7 @@
         {% endif %}
         <hr>
 
-        <p class="text-justify">
-            {{ schedule.description }}
-        </p>
+        {{ schedule.description|linebreaks }}
     </div>
 </section>
 {% endblock %}
