@@ -28,8 +28,9 @@ class ScheduleViewSet(viewsets.ModelViewSet):
 class MosqueViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Mosque.objects.all()
-    serializer_class = MosqueSerializer
+    filter_backends = [DjangoFilterBackend]
     filter_fields = ['city']
+    serializer_class = MosqueSerializer
 
 class CityViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
